@@ -12,7 +12,7 @@ class Gen_Data_loader():
             for line in f:
                 line = line.strip()
                 line = line.split()
-                parse_line = [int(x) for x in line]
+                parse_line = [int(x.split('_')[0]) for x in line]
                 if len(parse_line) == 20:
                     self.token_stream.append(parse_line)
 
@@ -44,7 +44,7 @@ class Dis_dataloader():
             for line in fin:
                 line = line.strip()
                 line = line.split()
-                parse_line = [int(x) for x in line]
+                parse_line = [int(x.split('_')[0]) for x in line]
                 positive_examples.append(parse_line)
         with open(negative_file)as fin:
             for line in fin:
